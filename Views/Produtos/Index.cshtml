@@ -1,0 +1,38 @@
+@*Passo 03 - Criar as Views*@
+@*Se Estou na View(Index) de Produtos, qual sera o model que devo usar?????????*@
+@model List<TechStoreMVC.Models.Produto>
+
+    @{
+        ViewData["Title"] = "Produtos";
+    }
+
+<h1>
+    Lista de Produtos
+</h1>
+<table class="table table-striped">
+    @*Tipo da tabela acima com Bootstrap*@
+    <thead>
+        @*Cabeçalho da tabela*@
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Açoes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var produto in Model)
+        {
+            <tr>
+            <td>@produto.Id</td>
+            <td>@produto.Nome</td>
+            <td>R$@produto.Preco.ToString("F2")</td>
+            <td>@produto.Estoque</td>
+            <td>
+                <button class="btn btn-primary">Datalhes</button>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>
